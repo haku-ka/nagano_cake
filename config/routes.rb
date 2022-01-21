@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   devise_for :customers
-  devise_for :admins
+  devise_for :admin
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: 'homes#top'
+
   
    namespace :admin do
+   root 'homes#top'
+ 
     resources :homes, only: [:top]
     resources :sessions, only: [:new, :create, :destroy]
     resources :items
